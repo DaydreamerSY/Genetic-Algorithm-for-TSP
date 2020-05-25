@@ -78,32 +78,13 @@ class MonkeyOnTruck:
             index = randint(0, self.N - 1)
             something = randint(0, self.nCity - 1)
             self.nghiem[index][something] = randint(0, self.nCity - 1)
-            
-    # def nghiem_hop_le(self, nghiem):
-    #     for i in range(len(nghiem) - 1):
-    #         for j in range(i+1, len(nghiem)):
-    #             if nghiem[i] == nghiem[j]:
-    #                 return False
-    #     return True
-    #     # r = sum(range(len(nghiem)))
-    #     # s = sum(nghiem)
-    #     # if r == s:
-    #     #     return True
-    #     # return False
-        
         
     
     def gen_sieu_nhan(self):
         temp = self.thichNghi.copy()
         temp.sort()
         best = temp[0]
-        # if best <= self.min and self.nghiem_hop_le(self.nghiem[self.thichNghi.index(best)]):
-        #     print("best is: {} with".format(best))
-        #     self.min = best
-        #     print(self.nghiem[self.thichNghi.index(best)])
-        #     self.best.clear()
-        #     self.best[best] = self.nghiem[self.thichNghi.index(best)]
-        #     print()
+
         
         for i in range(len(self.thichNghi)):
             if self.thichNghi[i] == best:
@@ -115,31 +96,13 @@ class MonkeyOnTruck:
                     w.write(", ".join([str(j) for j in self.nghiem[i]]))
                     w.write("\n")
                     w.close()
-    
-    # def duong_ngan_nhat_2(self):
-    #     for city in self.the_shorted_from:
-    #         temp_nghiem = []
-    #         temp_thichNghi = []
-    #         for i in range(self.N):
-    #             if self.nghiem[i][0] == city:
-    #                 temp_nghiem.append(self.nghiem[i])
-    #                 temp_thichNghi.append(self.thichNghi[i])
-    #
-    #         temp = temp_thichNghi.copy()
-    #         temp.sort()
-    #         best = temp[0]
-    #         if best <= self.the_shorted_from[city][0] and self.nghiem_hop_le(temp_nghiem[temp_thichNghi.index(best)]):
-    #             self.the_shorted_from[city][0] = best
-    #             self.the_shorted_from[city][1] = temp_nghiem[temp_thichNghi.index(best)]
-    
+
             
     def print_result(self):
         for i in self.best:
             print("best is: {} with\n{}".format(i, self.best[i]))
         print()
-        # for i in self.the_shorted_from:
-        #     print("Start at {} cost {}:\n{}".format(i, self.the_shorted_from[i][0], self.the_shorted_from[i][1]))
-        #     print()
+
 
 
 if __name__ == '__main__':
@@ -158,7 +121,3 @@ if __name__ == '__main__':
         man.lai_ghep(20)
         man.dot_bien(0.01)
     
-    # man.print_result()
-    
-    # print(man.nghiem)
-    # print(man.thichNghi)
