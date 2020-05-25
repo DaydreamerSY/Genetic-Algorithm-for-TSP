@@ -110,6 +110,11 @@ class MonkeyOnTruck:
                 print(self.thichNghi[i])
                 print(", ".join([str(j) for j in self.nghiem[i]]))
                 print()
+                with open("log_result.txt", 'a', encoding='utf-8') as w:
+                    w.write("{}\n".format(self.thichNghi[i]))
+                    w.write(", ".join([str(j) for j in self.nghiem[i]]))
+                    w.write("\n")
+                    w.close()
     
     # def duong_ngan_nhat_2(self):
     #     for city in self.the_shorted_from:
@@ -139,9 +144,12 @@ class MonkeyOnTruck:
 
 if __name__ == '__main__':
     size, map = read_map()
-    man = MonkeyOnTruck(100000, size, map)
+    man = MonkeyOnTruck(100, size, map)
     
-    for i in range(100):
+    for i in range(1000):
+        with open("log_result.txt", 'a', encoding='utf-8') as w:
+            w.write("Đời {}\n".format(i))
+            w.close()
         print('Đời {}'.format(i))
         man.danh_gia()
         man.gen_sieu_nhan()
